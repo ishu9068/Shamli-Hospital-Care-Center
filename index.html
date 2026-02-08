@@ -55,6 +55,9 @@
         --brand2: #0b5ed7;
         --soft: #f6f9ff;
         --text: #1f2937;
+
+        /* IMPORTANT: navbar+topbar offset for scroll */
+        --header-offset: 120px;
       }
 
       body {
@@ -339,17 +342,40 @@
 
       /* ===== Smooth Section spacing ===== */
       section {
-        scroll-margin-top: 80px;
+        scroll-margin-top: var(--header-offset);
       }
 
       /* ===== Mobile improvements ===== */
       @media (max-width: 991px) {
+        :root {
+          --header-offset: 150px;
+        }
+
         .navbar-collapse {
           background: white;
           border-radius: 18px;
           padding: 14px;
           margin-top: 10px;
           box-shadow: 0 18px 35px rgba(0, 0, 0, 0.07);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero {
+          padding: 45px 0;
+        }
+
+        .display-5 {
+          font-size: 1.8rem;
+        }
+
+        .hero-badge {
+          font-size: 0.85rem;
+        }
+
+        .sticky-cta a {
+          padding: 10px 12px;
+          font-size: 0.95rem;
         }
       }
     </style>
@@ -392,7 +418,7 @@
       >
         <div>
           📍 <strong>Shamli, Uttar Pradesh</strong> • 🕒 OPD:
-          <strong>[time*]</strong>
+          <strong>10:00 AM - 6:00 PM</strong>
         </div>
         <div class="d-flex gap-3">
           <a href="tel:9068685993">📞 Call: 9068685993</a>
@@ -503,7 +529,7 @@
                   <div class="icon-circle">🕒</div>
                   <div>
                     <div class="fw-bold">OPD Timing</div>
-                    <div class="text-secondary">24x7</div>
+                    <div class="text-secondary">10:00 AM - 6:00 PM</div>
                   </div>
                 </div>
 
@@ -558,11 +584,7 @@
           </div>
 
           <div class="row g-3">
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="0"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">👨‍⚕️ OPD Consultation</h4>
@@ -571,11 +593,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🚑 24×7 Emergency</h4>
@@ -586,11 +604,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🩺 General Checkup</h4>
@@ -622,11 +636,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🩸 Period Problems</h4>
@@ -637,11 +647,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🧬 Ovarian Cyst / Uterus Care</h4>
@@ -675,11 +681,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🧷 Hernia Surgery</h4>
@@ -688,11 +690,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🩻 Appendix Surgery</h4>
@@ -712,11 +710,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">👶 बच्चा बंद ऑपरेशन</h4>
@@ -750,11 +744,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🧷 Fistula Treatment</h4>
@@ -765,11 +755,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">⚡ Fissure Treatment</h4>
@@ -803,11 +789,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">💊 Pharmacy</h4>
@@ -816,11 +798,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🫁 Nebulizer & Oxygen</h4>
@@ -854,11 +832,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🦠 TB / Pneumonia</h4>
@@ -869,11 +843,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🧠 Heart & Brain Care</h4>
@@ -895,11 +865,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="80"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="80">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">🍽 पेट की बीमारी</h4>
@@ -910,11 +876,7 @@
               </div>
             </div>
 
-            <div
-              class="col-md-6 col-lg-4"
-              data-aos="zoom-in"
-              data-aos-delay="160"
-            >
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="160">
               <div class="card card-soft h-100">
                 <div class="card-body">
                   <h4 class="h5 fw-bold">👶 बच्चों की देखभाल</h4>
@@ -1147,6 +1109,7 @@
                         <button
                           type="submit"
                           class="btn btn-success btn-lg flex-grow-1"
+                          id="submitBtn"
                         >
                           💬 WhatsApp पर भेजें
                         </button>
@@ -1255,20 +1218,31 @@
         }
       });
 
-      // ============ Navbar Auto Close on Mobile ============
+      // ============ Navbar Auto Close + Smooth Scroll Fix ============
       const navMenu = document.getElementById("navMenu");
       const navLinks = document.querySelectorAll(".nav-close");
 
       navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          // only close if navbar is open
-          if (navMenu.classList.contains("show")) {
-            const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
-            if (bsCollapse) {
-              bsCollapse.hide();
-            } else {
-              new bootstrap.Collapse(navMenu).hide();
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+
+          if (href && href.startsWith("#")) {
+            e.preventDefault();
+
+            const target = document.querySelector(href);
+            if (!target) return;
+
+            // Close navbar first (mobile)
+            if (navMenu.classList.contains("show")) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
+              if (bsCollapse) bsCollapse.hide();
+              else new bootstrap.Collapse(navMenu).hide();
             }
+
+            // Scroll after small delay so menu closes
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 250);
           }
         });
       });
@@ -1278,10 +1252,7 @@
 
       getLocationBtn.addEventListener("click", () => {
         if (!navigator.geolocation) {
-          showMsg(
-            "error",
-            "आपके मोबाइल/ब्राउज़र में Location support नहीं है।",
-          );
+          showMsg("error", "आपके मोबाइल/ब्राउज़र में Location support नहीं है।");
           return;
         }
 
@@ -1318,6 +1289,7 @@
 
       // ============ Form Submit ============
       const form = document.getElementById("appointmentForm");
+      const submitBtn = document.getElementById("submitBtn");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -1340,6 +1312,10 @@
           return;
         }
 
+        // prevent double click
+        submitBtn.disabled = true;
+        submitBtn.textContent = "⏳ भेजा जा रहा है...";
+
         const now = new Date();
         const dateTime = now.toLocaleString("hi-IN");
 
@@ -1357,12 +1333,26 @@
           message += `%0A📍 Location: Not shared%0A`;
         }
 
-        message += `%0A🙏 Please confirm appointment.`;
+        message += `%0A Please confirm appointment.`;
 
         const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
         showMsg("success", "✅ WhatsApp खुल रहा है... अब Send दबा दो।");
-        window.open(waUrl, "_blank");
+
+        // reset form instantly
+        form.reset();
+        document.getElementById("lat").value = "";
+        document.getElementById("lng").value = "";
+        document.getElementById("locationText").value = "";
+
+        // restore button
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "💬 WhatsApp पर भेजें";
+        }, 1500);
+
+        // Mobile stable open (no weird new tab issue)
+        window.location.href = waUrl;
       });
     </script>
   </body>
