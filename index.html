@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="hi">
   <head>
-    <!-- =========================
-       BASIC SEO + META
-  ========================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -20,62 +17,45 @@
     <meta name="author" content="Shamli Hospital Care Center" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph (Facebook/WhatsApp preview) -->
-    <meta
-      property="og:title"
-      content="Shamli Hospital Care Center | अपॉइंटमेंट बुक करें"
-    />
-    <meta
-      property="og:description"
-      content="Shamli Hospital Care Center - OPD, Emergency, Lab Test, Delivery. अपॉइंटमेंट के लिए WhatsApp करें."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="[Your Website URL]" />
-    <meta property="og:image" content="[Your Logo or Banner Image URL]" />
-
-    <!-- Performance: Preconnect -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-    <!-- Bootstrap 5 CSS (CDN) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
-    <!-- AOS (Scroll Animation) -->
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
 
-    <!-- Small Custom CSS (Fast + Clean) -->
     <style>
       :root {
         --brand: #0d6efd;
         --brand2: #0b5ed7;
         --soft: #f6f9ff;
         --text: #1f2937;
-
-        /* IMPORTANT: navbar+topbar offset for scroll */
         --header-offset: 120px;
+      }
+
+      /* ===============================
+         ✅ MAIN FIX: NO HORIZONTAL SCROLL
+      =============================== */
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden !important;
+      }
+
+      /* extra safety */
+      * {
+        max-width: 100%;
       }
 
       body {
         color: var(--text);
         background: #fff;
         scroll-behavior: smooth;
-      }
-
-      /* ===== Smooth + Premium Scrollbar (optional) ===== */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(13, 110, 253, 0.3);
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(13, 110, 253, 0.5);
       }
 
       /* ===== Topbar ===== */
@@ -131,6 +111,8 @@
         );
         padding: 70px 0;
         position: relative;
+
+        /* ✅ FIX: stop blobs causing overflow */
         overflow: hidden;
       }
 
@@ -138,66 +120,38 @@
       .hero::before {
         content: "";
         position: absolute;
-        width: 420px;
-        height: 420px;
-        right: -120px;
-        top: -120px;
+        width: 380px;
+        height: 380px;
+
+        /* ✅ FIX: keep inside safe area */
+        right: -160px;
+        top: -160px;
+
         background: rgba(13, 110, 253, 0.15);
         border-radius: 50%;
         filter: blur(12px);
         animation: floatBlob 7s ease-in-out infinite;
+
+        /* safety */
+        max-width: 100%;
       }
 
       .hero::after {
         content: "";
         position: absolute;
-        width: 320px;
-        height: 320px;
-        left: -120px;
-        bottom: -120px;
+        width: 300px;
+        height: 300px;
+
+        /* ✅ FIX */
+        left: -160px;
+        bottom: -160px;
+
         background: rgba(26, 158, 87, 0.12);
         border-radius: 50%;
         filter: blur(10px);
         animation: floatBlob 9s ease-in-out infinite;
-      }
 
-      /* Category Heading Box */
-      .category-head {
-        padding: 14px 16px;
-        border-left: 6px solid #0d6efd;
-        background: #f8f9ff;
-        border-radius: 12px;
-      }
-
-      /* Category Colors */
-      .cat-emergency {
-        border-left-color: #0d6efd;
-        background: #f1f6ff;
-      }
-
-      .cat-women {
-        border-left-color: #e83e8c;
-        background: #fff1f8;
-      }
-
-      .cat-surgery {
-        border-left-color: #198754;
-        background: #f1fff6;
-      }
-
-      .cat-piles {
-        border-left-color: #dc3545;
-        background: #fff1f1;
-      }
-
-      .cat-lab {
-        border-left-color: #fd7e14;
-        background: #fff6ed;
-      }
-
-      .cat-disease {
-        border-left-color: #6f42c1;
-        background: #f6f1ff;
+        max-width: 100%;
       }
 
       @keyframes floatBlob {
@@ -220,6 +174,7 @@
         border-radius: 999px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         font-weight: 700;
+        flex-wrap: wrap;
       }
 
       .icon-circle {
@@ -247,6 +202,9 @@
         transition:
           transform 0.25s ease,
           box-shadow 0.25s ease;
+
+        /* ✅ FIX: card never overflow */
+        overflow: hidden;
       }
 
       .card-soft:hover {
@@ -292,6 +250,9 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        /* ✅ FIX */
+        max-width: calc(100vw - 28px);
       }
 
       .sticky-cta a {
@@ -305,6 +266,7 @@
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
         font-weight: 900;
         transition: transform 0.2s ease;
+        white-space: nowrap;
       }
 
       .sticky-cta a:hover {
@@ -340,12 +302,51 @@
         font-weight: 800;
       }
 
-      /* ===== Smooth Section spacing ===== */
       section {
         scroll-margin-top: var(--header-offset);
       }
 
-      /* ===== Mobile improvements ===== */
+      /* ===== Map / iframe FIX ===== */
+      iframe {
+        max-width: 100% !important;
+        border: 0;
+      }
+
+      /* Category Heading Box */
+      .category-head {
+        padding: 14px 16px;
+        border-left: 6px solid #0d6efd;
+        background: #f8f9ff;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      /* Category Colors */
+      .cat-emergency {
+        border-left-color: #0d6efd;
+        background: #f1f6ff;
+      }
+      .cat-women {
+        border-left-color: #e83e8c;
+        background: #fff1f8;
+      }
+      .cat-surgery {
+        border-left-color: #198754;
+        background: #f1fff6;
+      }
+      .cat-piles {
+        border-left-color: #dc3545;
+        background: #fff1f1;
+      }
+      .cat-lab {
+        border-left-color: #fd7e14;
+        background: #fff6ed;
+      }
+      .cat-disease {
+        border-left-color: #6f42c1;
+        background: #f6f1ff;
+      }
+
       @media (max-width: 991px) {
         :root {
           --header-offset: 150px;
@@ -369,56 +370,27 @@
           font-size: 1.8rem;
         }
 
-        .hero-badge {
-          font-size: 0.85rem;
-        }
-
         .sticky-cta a {
           padding: 10px 12px;
           font-size: 0.95rem;
         }
-      }
-    </style>
 
-    <!-- =========================
-       LocalBusiness Schema (SEO)
-  ========================== -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Hospital",
-        "name": "Shamli Hospital Care Center",
-        "url": "[Your Website URL]",
-        "telephone": "9068685993",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Near Mother Land Public School, Muzaffarnagar Road, Shamli, Uttar Pradesh 247776",
-          "addressLocality": "Shamli",
-          "addressRegion": "Uttar Pradesh",
-          "postalCode": "247776",
-          "addressCountry": "IN"
-        },
-        "openingHours": "Mo-Su 00:00-23:59",
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "[Latitude]",
-          "longitude": "[Longitude]"
+        /* extra safety */
+        .container {
+          overflow-x: hidden;
         }
       }
-    </script>
+    </style>
   </head>
 
   <body>
-    <!-- =========================
-       TOP BAR
-  ========================== -->
+    <!-- TOPBAR -->
     <div class="topbar py-2">
       <div
         class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2"
       >
         <div>
-          📍 <strong>Shamli, Uttar Pradesh</strong> • 🕒 OPD:
-          <strong>10:00 AM - 6:00 PM</strong>
+          📍 <strong>Shamli, Uttar Pradesh</strong> 
         </div>
         <div class="d-flex gap-3">
           <a href="tel:9068685993">📞 Call: 9068685993</a>
@@ -426,9 +398,7 @@
       </div>
     </div>
 
-    <!-- =========================
-       NAVBAR
-  ========================== -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#">
@@ -468,9 +438,7 @@
       </div>
     </nav>
 
-    <!-- =========================
-       HERO
-  ========================== -->
+    <!-- HERO -->
     <header class="hero">
       <div class="container position-relative">
         <div class="row align-items-center g-4">
@@ -561,12 +529,9 @@
       </div>
     </header>
 
-    <!-- =========================
-       SERVICES
-  ========================== -->
+    <!-- SERVICES -->
     <section id="services" class="py-5">
       <div class="container">
-        <!-- Main Heading -->
         <div class="text-center mb-5" data-aos="fade-up">
           <h2 class="section-title">हमारी सेवाएं</h2>
           <p class="text-secondary mb-0">
@@ -574,7 +539,7 @@
           </p>
         </div>
 
-        <!-- 1) Emergency & OPD -->
+        <!-- Emergency -->
         <div class="mb-5" data-aos="fade-up">
           <div class="category-head cat-emergency mb-3">
             <h3 class="h5 fw-bold mb-1">🚑 Emergency & OPD</h3>
@@ -615,7 +580,7 @@
           </div>
         </div>
 
-        <!-- 2) Women -->
+        <!-- Women -->
         <div class="mb-5" data-aos="fade-up">
           <div class="category-head cat-women mb-3">
             <h3 class="h5 fw-bold mb-1">🤰 महिला एवं प्रसूति सेवाएं</h3>
@@ -660,7 +625,7 @@
           </div>
         </div>
 
-        <!-- 3) Surgery -->
+        <!-- Surgery -->
         <div class="mb-5" data-aos="fade-up">
           <div class="category-head cat-surgery mb-3">
             <h3 class="h5 fw-bold mb-1">🏥 सर्जरी (Operations)</h3>
@@ -723,7 +688,7 @@
           </div>
         </div>
 
-        <!-- 4) Piles -->
+        <!-- Piles -->
         <div class="mb-5" data-aos="fade-up">
           <div class="category-head cat-piles mb-3">
             <h3 class="h5 fw-bold mb-1">🔥 बवासीर / भगन्दर / फिशर</h3>
@@ -768,7 +733,7 @@
           </div>
         </div>
 
-        <!-- 5) Lab -->
+        <!-- Lab -->
         <div class="mb-5" data-aos="fade-up">
           <div class="category-head cat-lab mb-3">
             <h3 class="h5 fw-bold mb-1">🧪 जांच एवं सुविधाएं</h3>
@@ -811,7 +776,7 @@
           </div>
         </div>
 
-        <!-- 6) Diseases -->
+        <!-- Diseases -->
         <div class="mb-2" data-aos="fade-up">
           <div class="category-head cat-disease mb-3">
             <h3 class="h5 fw-bold mb-1">🩺 बीमारियों का इलाज</h3>
@@ -891,106 +856,7 @@
       </div>
     </section>
 
-    <!-- =========================
-       DOCTORS
-  ========================== -->
-    <section id="doctors" class="py-5 bg-light">
-      <div class="container">
-        <div class="text-center mb-4" data-aos="fade-up">
-          <h2 class="section-title">हमारे डॉक्टर</h2>
-          <p class="text-secondary mb-0">अनुभवी और भरोसेमंद</p>
-        </div>
-
-        <div class="row g-3 justify-content-center">
-          <div class="col-md-6 col-lg-4" data-aos="flip-left">
-            <div class="card card-soft h-100">
-              <div class="card-body">
-                <h3 class="h5 fw-bold">👨‍⚕️ Dr. Nitesh Singh</h3>
-                <p class="text-secondary mb-2">MBBS, MD (General Medicine)</p>
-                <p class="mb-0"><strong>Timing:</strong> 10:00 AM - 8:00 PM</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="flip-right">
-            <div class="card card-soft h-100">
-              <div class="card-body">
-                <h3 class="h5 fw-bold">👩‍⚕️ Dr. [Doctor Name 2]</h3>
-                <p class="text-secondary mb-2">
-                  [Qualification e.g. MBBS, Gynecologist]
-                </p>
-                <p class="mb-0"><strong>Timing:</strong> [Doctor Timing]</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-       TIMING + CONTACT
-  ========================== -->
-    <section id="timing" class="py-5">
-      <div class="container">
-        <div class="row g-3 align-items-stretch">
-          <div class="col-lg-6" data-aos="fade-right">
-            <div class="card card-soft h-100">
-              <div class="card-body">
-                <h2 class="h4 fw-bold mb-3">🕒 समय (Timing)</h2>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>OPD</span>
-                    <strong> 10:00 AM - 6:00 PM </strong>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>Emergency</span>
-                    <strong>24x7</strong>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>Sunday</span>
-                    <strong>10:00 AM - 6:00 PM</strong>
-                  </li>
-                </ul>
-                <p class="text-secondary small mt-3 mb-0">
-                  * कृपया emergency case में तुरंत कॉल करें।
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="card card-soft h-100">
-              <div class="card-body">
-                <h2 class="h4 fw-bold mb-3">📞 संपर्क (Contact)</h2>
-
-                <p class="mb-2">
-                  <strong>Phone:</strong>
-                  <a href="tel:9068685993">9068685993</a>
-                </p>
-                <p class="mb-2">
-                  <strong>WhatsApp:</strong>
-                  <a target="_blank" href="https://wa.me/919068685993"
-                    >+91 9068685993</a
-                  >
-                </p>
-                <p class="mb-0">
-                  <strong>Address:</strong> Shamli, Uttar Pradesh
-                </p>
-                <hr class="my-4" />
-
-                <a href="#appointment" class="btn btn-brand w-100 btn-lg"
-                  >📝 अपॉइंटमेंट फॉर्म खोलें</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-       LOCATION (MAP)
-  ========================== -->
+    <!-- LOCATION -->
     <section id="location" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-4" data-aos="fade-up">
@@ -1003,13 +869,9 @@
         <div class="card card-soft overflow-hidden" data-aos="zoom-in">
           <div class="ratio ratio-16x9">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50298.45167538603!2d77.22212791442867!3d29.462393068192284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c2949d544664f%3A0x51883f86d13fccce!2sGovt.Hospital%20Shamli!5e1!3m2!1sen!2sin!4v1770532611850!5m2!1sen!2sin"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50298.45167538603!2d77.22212791442867!3d29.462393068192284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c2949d544664f%3A0x51883f86d13fccce!2sGovt.Hospital%20Shamli!5e1!3m2!1sen!2sin!4v1770532611850!5m2!1sen!2sin"
             ></iframe>
           </div>
         </div>
@@ -1026,9 +888,7 @@
       </div>
     </section>
 
-    <!-- =========================
-       APPOINTMENT FORM (WhatsApp)
-  ========================== -->
+    <!-- APPOINTMENT -->
     <section id="appointment" class="py-5">
       <div class="container">
         <div class="text-center mb-4" data-aos="fade-up">
@@ -1114,20 +974,18 @@
                           💬 WhatsApp पर भेजें
                         </button>
                       </div>
+
                       <p class="text-secondary small mt-3 mb-0">
-                        * लोकेशन optional है, लेकिन देने से हॉस्पिटल को patient
-                        तक पहुंचने में मदद मिलती है।
+                        * लोकेशन optional है।
                       </p>
                     </div>
                   </div>
 
-                  <!-- Hidden fields -->
                   <input type="hidden" id="lat" />
                   <input type="hidden" id="lng" />
                   <input type="hidden" id="locationText" />
                 </form>
 
-                <!-- Message Box -->
                 <div id="msgBox" class="alert mt-4 d-none" role="alert"></div>
               </div>
             </div>
@@ -1136,9 +994,7 @@
       </div>
     </section>
 
-    <!-- =========================
-       FOOTER
-  ========================== -->
+    <!-- FOOTER -->
     <footer class="py-4">
       <div class="container">
         <div class="row g-3 align-items-center">
@@ -1159,7 +1015,7 @@
       </div>
     </footer>
 
-    <!-- Sticky CTA Buttons -->
+    <!-- Sticky CTA -->
     <div class="sticky-cta">
       <a class="cta-call" href="tel:9068685993">📞 Call Now</a>
       <a class="cta-wa" target="_blank" href="https://wa.me/919068685993"
@@ -1167,26 +1023,19 @@
       >
     </div>
 
-    <!-- Bootstrap JS -->
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
 
-    <!-- AOS JS -->
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
     ></script>
 
-    <!-- =========================
-       JS: WhatsApp Form + Location + Navbar Auto Close + Animations
-  ========================== -->
     <script>
-      // ============ SETTINGS ============
       const WHATSAPP_NUMBER = "919068685993";
 
-      // ============ Helpers ============
       const msgBox = document.getElementById("msgBox");
 
       function showMsg(type, text) {
@@ -1203,10 +1052,8 @@
         return (m || "").replace(/\D/g, "");
       }
 
-      // ============ Year ============
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // ============ AOS Init ============
       window.addEventListener("load", () => {
         if (window.AOS) {
           AOS.init({
@@ -1218,28 +1065,24 @@
         }
       });
 
-      // ============ Navbar Auto Close + Smooth Scroll Fix ============
+      // Navbar Auto Close
       const navMenu = document.getElementById("navMenu");
       const navLinks = document.querySelectorAll(".nav-close");
 
       navLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
           const href = link.getAttribute("href");
-
           if (href && href.startsWith("#")) {
             e.preventDefault();
-
             const target = document.querySelector(href);
             if (!target) return;
 
-            // Close navbar first (mobile)
             if (navMenu.classList.contains("show")) {
               const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
               if (bsCollapse) bsCollapse.hide();
               else new bootstrap.Collapse(navMenu).hide();
             }
 
-            // Scroll after small delay so menu closes
             setTimeout(() => {
               target.scrollIntoView({ behavior: "smooth", block: "start" });
             }, 250);
@@ -1247,7 +1090,7 @@
         });
       });
 
-      // ============ Location ============
+      // Location
       const getLocationBtn = document.getElementById("getLocationBtn");
 
       getLocationBtn.addEventListener("click", () => {
@@ -1287,7 +1130,7 @@
         );
       });
 
-      // ============ Form Submit ============
+      // Form Submit
       const form = document.getElementById("appointmentForm");
       const submitBtn = document.getElementById("submitBtn");
 
@@ -1299,7 +1142,6 @@
         const area = document.getElementById("area").value.trim();
         const time = document.getElementById("time").value.trim();
         const problem = document.getElementById("problem").value.trim();
-
         const locLink = document.getElementById("locationText").value.trim();
 
         if (!name || !mobile || !area || !problem) {
@@ -1312,7 +1154,6 @@
           return;
         }
 
-        // prevent double click
         submitBtn.disabled = true;
         submitBtn.textContent = "⏳ भेजा जा रहा है...";
 
@@ -1333,25 +1174,20 @@
           message += `%0A📍 Location: Not shared%0A`;
         }
 
-        message += `%0A Please confirm appointment.`;
-
         const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
         showMsg("success", "✅ WhatsApp खुल रहा है... अब Send दबा दो।");
 
-        // reset form instantly
         form.reset();
         document.getElementById("lat").value = "";
         document.getElementById("lng").value = "";
         document.getElementById("locationText").value = "";
 
-        // restore button
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.textContent = "💬 WhatsApp पर भेजें";
         }, 1500);
 
-        // Mobile stable open (no weird new tab issue)
         window.location.href = waUrl;
       });
     </script>
